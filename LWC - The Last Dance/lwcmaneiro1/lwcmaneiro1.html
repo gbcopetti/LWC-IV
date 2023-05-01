@@ -1,0 +1,33 @@
+<template>
+    <div class="slds-box slds-theme_default">
+        <h1>CALCULADORA LWC Yusuke Urameshi </h1>
+        <lightning-input name="input1" label="Digite o primeiro número" value={num1}
+            onchange={handleInputChange}></lightning-input>
+        <lightning-input name="input2" label="Digite o segundo número" value={num2}
+            onchange={handleInputChange}></lightning-input>
+        <br />
+        <lightning-button-group class="slds-align_absolute-center">
+            <lightning-button label="Adição" onclick={add}></lightning-button>
+            <lightning-button label="Subtração" onclick={subtract}></lightning-button>
+            <lightning-button label="Multiplicação" onclick={multiply}></lightning-button>
+            <lightning-button label="Divisão" onclick={divide}></lightning-button>
+            <lightning-button label="Limpar" onclick={clear}></lightning-button>
+        </lightning-button-group>
+        <br />
+        <template if:true={isResultVisible}>
+            <template if:true={isAdd}>
+                A Adição do número {num1} e do número {num2} é igual a {total}.
+            </template>
+            <template if:true={isSub}>
+                A Subtração do número {num1} e do número {num2} é igual a {total}.
+            </template>
+            <template if:true={isMul}>
+                A Multiplicação do número {num1} e do número {num2} é igual a {total}.
+            </template>
+            <template if:true={isDiv}>
+                A Divisão do número {num1} e do número {num2} é igual a {total}.
+            </template>
+        </template>
+    </div>
+    <br />
+</template>
